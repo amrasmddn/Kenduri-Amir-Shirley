@@ -157,6 +157,18 @@
       <div class="section" id="countdown" style="font-size: 1.5rem; font-weight: bold; color: #af1b62;">
   Countdown: <span id="timer">Loading...</span>
 </div>
+      <div class="section" id="guestbook">
+  <h2>💌 Guestbook</h2>
+  <p>Ucapan dari tetamu yang dihargai 🥰</p>
+
+  <form id="guestbook-form" style="margin-top: 1rem;">
+    <input type="text" id="guest-name" placeholder="Nama Anda" required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc; width: 45%; margin-right: 5px;">
+    <input type="text" id="guest-message" placeholder="Ucapan..." required style="padding: 10px; border-radius: 8px; border: 1px solid #ccc; width: 45%;">
+    <button type="submit" class="rsvp-button" style="margin-top: 10px;">💬 Hantar Ucapan</button>
+  </form>
+
+  <div id="guestbook-entries" style="margin-top: 2rem; text-align: left;"></div>
+</div>
 
   </div>
 
@@ -201,6 +213,30 @@
   // Update every second
   setInterval(updateCountdown, 1000);
 </script>
+<script>
+  const form = document.getElementById('guestbook-form');
+  const entries = document.getElementById('guestbook-entries');
 
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('guest-name').value.trim();
+    const message = document.getElementById('guest-message').value.trim();
+
+    if (name && message) {
+      const entry = document.createElement('div');
+      entry.style.marginBottom = '1rem';
+      entry.style.padding = '1rem';
+      entry.style.borderLeft = '4px solid #d63384';
+      entry.style.backgroundColor = '#fff0f5';
+      entry.style.borderRadius = '10px';
+      entry.innerHTML = `<strong>${name}:</strong><br><em>${message}</em>`;
+      entries.prepend(entry);
+
+      form.reset();
+    }
+  });
+</script>
+
+  
 </body>
 </html>
