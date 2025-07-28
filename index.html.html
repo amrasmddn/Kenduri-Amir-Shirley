@@ -119,11 +119,44 @@
     <div class="footer">
       Kami amat menghargai kehadiran anda pada hari bermakna ini 💕
     </div>
+      <div class="section" id="countdown" style="font-size: 1.5rem; font-weight: bold; color: #af1b62;">
+  Countdown: <span id="timer">Loading...</span>
+</div>
+
   </div>
 
 <!-- YouTube Embed -->
 <div style="text-align:center; margin-top: 2rem;">
   <iframe width="320" height="180" src="https://www.youtube.com/embed/rtOvBOTyX00?autoplay=1&loop=1&playlist=rtOvBOTyX00" title="A Thousand Years - Christina Perri" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
+  <script>
+  // Set the date and time for the wedding (Malaysia Time: UTC+8)
+  const weddingDate = new Date("2025-10-18T11:00:00+08:00").getTime();
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    if (distance <= 0) {
+      document.getElementById("timer").innerHTML = "🎉 Majlis Telah Bermula!";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("timer").innerHTML =
+      `${days} hari ${hours} jam ${minutes} minit ${seconds} saat`;
+  }
+
+  // Initial call
+  updateCountdown();
+
+  // Update every second
+  setInterval(updateCountdown, 1000);
+</script>
+
 </body>
 </html>
