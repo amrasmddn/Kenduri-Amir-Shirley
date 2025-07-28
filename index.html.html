@@ -116,9 +116,20 @@
   70% { transform: translate(-50%, -50%) scale(1.3); opacity: 0; }
   100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
 }
+    .glitter {
+  background: url('https://i.imgur.com/MaU4H3D.gif') repeat;
+  mix-blend-mode: screen;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 1;
+}
+
   </style>
 </head>
 <body>
+  <div class="glitter"></div>
   <div class="overlay">
     <p style="font-size: 2.0rem; color: #af1b62; font-weight: bold; margin-bottom: 1rem;">Jemputan ke Majlis Perkahwinan</p>
     <h1>Amir & Shirley</h1>
