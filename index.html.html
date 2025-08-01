@@ -6,14 +6,20 @@
   <title>✨ Wedding of Amir & Shirley ✨</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap');
-    body {
+html, body {
   margin: 0;
+  padding: 0;
+  height: 100%;
   font-family: 'Open Sans', sans-serif;
   background: linear-gradient(to bottom, rgba(120, 20, 60, 0.9), rgba(180, 50, 100, 0.95)),
               url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
   background-size: cover;
   color: #fce4ec;
-    }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
     .overlay {
       background-color: rgba(255, 255, 255, 0.8);
       padding: 3rem 2rem;
@@ -264,7 +270,7 @@
     e.preventDefault();
     const name = document.getElementById('guest-name').value.trim();
     const message = document.getElementById('guest-message').value.trim();
-
+      
     if (name && message) {
       const entry = document.createElement('div');
       entry.style.marginBottom = '1rem';
